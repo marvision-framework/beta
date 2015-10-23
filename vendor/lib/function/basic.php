@@ -200,7 +200,7 @@
 
 	 			if ($type == "deconvert") { /// mysql --> code //exmp: 1,2 ==> array("0"=>"1","1"=>"2")
  
-	 				$data = explode(",", $array);
+	 				$data = explode(',', $array);
 
 	 				
 	 				//die(var_dump($data));
@@ -250,6 +250,12 @@
 	 			$result = $data;
 	 		}
  			//die("count = ".count($array)."<br>".debug($array)."<br>".debug($data));
+ 			return $result;
+ 		}
+
+
+ 		function math_moy($val,$total){ 
+			$result = ($val / $total) * 100;
  			return $result;
  		}
 
