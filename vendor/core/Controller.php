@@ -2,6 +2,7 @@
 
 	class Controller
 	{
+		public $errors = array();//
 		public $request;//oblet request
 		private $vars = array(); //var à passeer àla vue
 		public $layout = 'default';//layout etulise
@@ -10,8 +11,6 @@
 		function __construct($request = null){
 
 			$this->Session = new Session();
-			$this->Form = new Form($this);
-
 			if($request){
 					$this->request = $request; //stock la req dans l'instance
 					require_once APP_config.'/security.php';
@@ -30,6 +29,7 @@
 			ob_start();
 			require($view);
 			$content_for_layout = ob_get_clean();
+			unset($_SESSION['Errors']);
 			require WEB.'/view/layout'.DS.$this->layout.'.php';
 			$this->rendered = true;
 		}
@@ -41,7 +41,7 @@
 				$this->vars[$key] = $value;
 			}
 		}
-		
+
 		//charger la model
 		function loadModel($name){
 			if (!isset($this->$name)) {
@@ -52,7 +52,20 @@
 					$this->$name->Form = $this->Form;
 				}
 			}
-			
+
+		}
+		//charger la model
+		function loadForm($verif){
+			$form = new Form();
+			$num = 0;
+			foreach($verif as $function => $value){
+				$errors[$function] = $form->$function($value);
+				debug($errors[$function]);
+				$num = count($errors[$function]);
+			}
+			$this->Session->write('Errors',$errors);
+			return ($num != 0)? false:true;
+
 		}
 
 		//** appeller un conntroller depuis un vue 

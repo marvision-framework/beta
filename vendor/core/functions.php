@@ -24,12 +24,14 @@
 		}
 	}
   
-  	// include the function from lib/
  	used("basic");
+ 	used("security");
+ 	used("data");
  	used("style");
  	used("time");
+ 	used("analyse");
+ 	used("visiteur");
  	used("mysql");
- 	#...
 
 
 
