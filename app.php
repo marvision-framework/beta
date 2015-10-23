@@ -7,4 +7,4 @@
 	new Dispatcher();
 	require_once CORE.'/visiteur.php';
 
-?> 
+?>  
