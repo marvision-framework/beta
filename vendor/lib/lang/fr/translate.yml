@@ -17,6 +17,7 @@ add			: Ajouter
 delete		: Supprimer
 Publish		: Publier
 edit		: Modifier
+send		: envoyer
 slike_this	: aiment ça
 like_this	: aime ça
 ilike		: j'aime
@@ -66,3 +67,17 @@ description : Description
 justMe		: Moi uniquement 
 prive		: privé 
 public		: Public 
+users		: les utililisateurs 
+listusers	: list des utililisateurs
+adduser 	: ajouter un nouveau utililisateur
+dashboard	: dashboard
+online		: connecter
+offline		: deconnecter
+active		: active
+bloque		: bloque
+user		: utilisateur
+admin		: administrateur
+username	: username
+find	    : rechercher
+selectimg	: selection d'image
+save		: enregistrer

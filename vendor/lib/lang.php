@@ -8,8 +8,6 @@
 					$lang->write('Lang',$_GET["lang"]);
 			}
 	}
-
-
 #######################################################################
 	######################ACTIVATION SESSION LANG #################
 
@@ -40,8 +38,8 @@
 				if (in_array($type, $alert)) {
 					$trans = $app_yml->load("alert","lib","lang/".$langSite);  
 					$trans = (!empty($trans[$type][$txt])) ? $trans[$type][$txt] : $txt ;
-					$div = "<div id='divalert' class='alert alert-".$type." alert-dismissible fade in'><button onclick='closedivalert()' type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button>";
-					$trans = $div."<p>".$trans."</p></div>";
+					$div = "<div style='padding:1%; '><div class='alert alert-dismissable alert-".$type." alert-dismissible fade in'><button  type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button>";
+					$trans = $div."<p>".$trans."</p></div></div>";
 				}elseif (file_exists($dic)) { 
 						$trans = $app_yml->load($type,"lib","lang/".$langSite); 
 						if (!empty($val)) {
